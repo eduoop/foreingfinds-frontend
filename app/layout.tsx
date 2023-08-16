@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Navbar } from './components/Navbar'
-import NextAuthSessionProvider from '@/Providers/sessionProvider'
+import NextSessionProvider from "@/Providers/NextSessionProvider";
+import toast, { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,10 +19,22 @@ export default function RootLayout({
       </head>
       <html lang="en" className='flex flex-col'>
         <body>
-          <NextAuthSessionProvider>
-            <Navbar />
+          <NextSessionProvider>
+            <Toaster toastOptions={{
+                 className: '',
+                 style: {
+                   border: '1px solid #ff6446',
+                   padding: '5px 10px',
+                   color: '#ff6446',
+                   fontWeight: '500'
+                 },
+                 iconTheme: {
+                   primary: '#ff6446',
+                   secondary: '#FFFAEE',
+                 },
+            }}/>
             {children}
-          </NextAuthSessionProvider>
+          </NextSessionProvider>
         </body>
       </html>
     </>

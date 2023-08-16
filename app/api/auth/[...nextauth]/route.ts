@@ -11,7 +11,7 @@ const nextAuthOptions: NextAuthOptions = {
 			},
 
 			async authorize(credentials, req) {
-				const response = await fetch('http://localhost:3333/auth', {
+				const response = await fetch('http://127.0.0.1:3333/auth', {
 					method: 'POST',
 					headers: {
 						'Content-type': 'application/json'

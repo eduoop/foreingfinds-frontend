@@ -1,14 +1,16 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import TextInput from '../components/Inputs/TextInput'
+import TextInput from '../../components/Inputs/TextInput'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { signIn } from "next-auth/react"
-import PasswordInput from '../components/Inputs/TextPassword'
-import Orange from '../components/Buttons/OrangeUppercase'
+import PasswordInput from '../../components/Inputs/TextPassword'
+import Orange from '../../components/Buttons/OrangeUppercase'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
+import Sing from '@/app/components/Headers/Sing'
 
 const loginFormSchema = z.object({
   email: z.string()
@@ -48,18 +50,20 @@ const login = () => {
 
     if (result?.error) {
       console.log(result)
+      setLoading(false)
       return
     }
 
+    setLoading(false)
     router.replace("/")
   }
 
   return (
     <div className='w-screen h-screen bg-primaryOrange flex flex-col items-center'>
-      <div className='w-screen h-[80px] bg-white'>
-      </div>
 
-      <div className='w-[400px] min-h-[400px] bg-white mt-20 rounded-md shadow-md flex flex-col p-8'>
+      <Sing />
+
+      <div className='w-[400px] sm:w-[300px] min-h-[400px] bg-white mt-20 rounded-md shadow-md flex flex-col p-8'>
         <form onSubmit={handleSubmit(login)} className='flex flex-col gap-2'>
           <h1 className='font-roboto text-2xl mb-3'>Entre</h1>
           <TextInput errors={errors} register={register} placeholder='Email'
@@ -70,7 +74,7 @@ const login = () => {
           />
 
           <div className='flex flex-col gap-1'>
-            <Orange text='Entre' />
+            <Orange disabled={loading} text='Entre' />
             <Link href="/forgot-password" className='font-roboto text-blue-900 text-[12px]'>Esqueci minha senha</Link>
           </div>
 
@@ -82,7 +86,7 @@ const login = () => {
 
           <h2 className='justify-center w-full text-[#ccc] font-roboto text-[15px] flex items-center gap-2'>
             Novo na ForeingFinds?
-            <Link href="/forgot-password" className='font-roboto text-primaryOrange'>Cadastrar</Link>
+            <Link href="/register" className='font-roboto text-primaryOrange'>Cadastrar</Link>
           </h2>
 
         </form>

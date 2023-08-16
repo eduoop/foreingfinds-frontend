@@ -1,4 +1,5 @@
 import React, { Ref, useEffect } from 'react'
+import InputMask from 'react-input-mask';
 
 type Error = {
     message: string;
@@ -10,10 +11,10 @@ type Props = {
     name: string;
     register: any;
     errors: any;
-    disabled?: boolean;
+    mask: string;
 }
 
-const TextInput = ({ placeholder, name, register, errors, disabled = false }: Props) => {
+const MaskInput = ({ placeholder, name, register, errors, mask }: Props) => {
 
     const error: Error = errors[name]
 
@@ -23,9 +24,9 @@ const TextInput = ({ placeholder, name, register, errors, disabled = false }: Pr
 
     return (
         <div className='flex flex-col gap-1'>
-            <input
+            <InputMask
                 className={error ? errorStyled : styled}
-                type="text" placeholder={placeholder} {...register(name)} disabled={disabled}/>
+                type="text" placeholder={placeholder} {...register(name)} mask={mask}/>
 
             {error ?
                 <div className='flex items-center'>
@@ -40,4 +41,4 @@ const TextInput = ({ placeholder, name, register, errors, disabled = false }: Pr
     )
 }
 
-export default TextInput
+export default MaskInput

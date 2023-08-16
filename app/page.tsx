@@ -1,9 +1,13 @@
-import Image from 'next/image'
+import { getServerSession } from "next-auth"
+import { nextAuthOptions } from "./api/auth/[...nextauth]/route"
 
-export default function Home() {
+export default async function Home() {
+
+  const session = await getServerSession(nextAuthOptions)
+
   return (
-    <div className='h-[10000px]'>
-      Page go be here
+    <div className='h-[1000px] mt-20'>
+      {session?.user.name}
     </div>
   )
 }

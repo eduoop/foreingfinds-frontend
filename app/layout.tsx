@@ -1,8 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Navbar } from './components/Navbar'
+import NextAuthSessionProvider from '@/Providers/sessionProvider'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,8 +14,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <>
+      <head>
+      </head>
+      <html lang="en" className='flex flex-col'>
+        <body>
+          <NextAuthSessionProvider>
+            <Navbar />
+            {children}
+          </NextAuthSessionProvider>
+        </body>
+      </html>
+    </>
   )
 }

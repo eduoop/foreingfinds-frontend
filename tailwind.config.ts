@@ -11,6 +11,9 @@ const config: Config = {
       colors: {
         weakGray: '#ebebeb',
         primaryOrange: '#EE4D2D',
+        primaryGray: '#D2D2D2',
+        neutralBlack: '#1a1d23',
+
       },
       fontFamily: {
         'roboto': ['Roboto',],

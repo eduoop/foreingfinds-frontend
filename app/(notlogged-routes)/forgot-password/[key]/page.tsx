@@ -92,8 +92,6 @@ const completeRegister = ({ params }: { params: any }) => {
                     console.log(err)
                 })
         }
-
-
     }
 
     useEffect(() => {

@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import NextSessionProvider from "@/Providers/NextSessionProvider";
 import toast, { Toaster } from 'react-hot-toast';
+import Header from './components/Headers/Header';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -33,6 +34,7 @@ export default function RootLayout({
                    secondary: '#FFFAEE',
                  },
             }}/>
+            <Header />
             {children}
           </NextSessionProvider>
         </body>

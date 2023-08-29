@@ -12,6 +12,7 @@ const config: Config = {
         weakGray: '#ebebeb',
         primaryOrange: '#EE4D2D',
         primaryGray: '#D2D2D2',
+        primaryGraffiti: '#4a4a4a',
         neutralBlack: '#1a1d23',
 
       },

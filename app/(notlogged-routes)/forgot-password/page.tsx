@@ -4,7 +4,6 @@ import TextInput from '../../components/Inputs/TextInput'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { signIn } from "next-auth/react"
 import PasswordInput from '../../components/Inputs/TextPassword'
 import Orange from '../../components/Buttons/OrangeUppercase'
 import Link from 'next/link'

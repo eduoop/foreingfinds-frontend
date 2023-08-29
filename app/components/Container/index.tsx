@@ -10,7 +10,7 @@ export const Container = ({ children, width }: Props) => {
 
   return (
     <div className={`w-screen flex justify-center`}>
-      <div className='w-[1200px] lg:w-[90%]'>
+      <div className='w-[90%] desktop:w-[1200px]'>
         {children}
       </div>
     </div>

@@ -4,13 +4,13 @@ import TextInput from '../../components/Inputs/TextInput'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { signIn } from "next-auth/react"
 import PasswordInput from '../../components/Inputs/TextPassword'
 import Orange from '../../components/Buttons/OrangeUppercase'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import Image from 'next/image'
 import Sing from '@/app/components/Headers/Sing'
+import { useGlobalUserContext } from '@/app/contexts/User/UserContext'
+import { toast } from 'react-hot-toast'
 
 const loginFormSchema = z.object({
   email: z.string()
@@ -30,9 +30,9 @@ const login = () => {
 
   const [loading, setLoading] = useState(false)
 
-  const router = useRouter()
+  const { signin } = useGlobalUserContext()
 
-  console.log(errors)
+  const router = useRouter()
 
   const login = async (data: LoginFormData) => {
     console.log(data)
@@ -41,21 +41,13 @@ const login = () => {
     const email = data.email
     const password = data.password
 
-
-    const result = await signIn("credentials", {
-      email,
-      password,
-      redirect: false
-    })
-
-    if (result?.error) {
-      console.log(result)
+    signin(email, password).then(() => {
       setLoading(false)
-      return
-    }
-
-    setLoading(false)
-    router.replace("/")
+      router.replace("/")
+    }).catch((err) => {
+      setLoading(false)
+      toast.error("Conta não encontrada")
+    })
   }
 
   return (

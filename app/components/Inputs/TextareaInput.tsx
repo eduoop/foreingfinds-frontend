@@ -1,6 +1,4 @@
-"use client"
-import React, { Ref, useEffect, useState } from 'react'
-import InputMask from 'react-input-mask';
+import React, { Ref, useEffect } from 'react'
 
 type Error = {
     message: string;
@@ -12,23 +10,17 @@ type Props = {
     name: string;
     register: any;
     errors: any;
-    mask: string;
+    disabled?: boolean;
     label?: string;
 }
 
-const MaskInput = ({ placeholder, name, register, errors, mask, label }: Props) => {
+const TextareaInput = ({ placeholder, name, register, errors, disabled = false, label }: Props) => {
 
     const error: Error = errors[name]
 
-    const errorStyled = 'w-full border border-red-600 bg-red-100 font-roboto outline-none rounded-sm py-2 px-4 text-md'
+    const errorStyled = 'w-full border border-red-600 bg-red-100 font-roboto outline-none rounded-sm py-2 px-4 text-md w-full min-h-[150px]'
 
-    const [set, setSet] = useState(0)
-
-    const styled = 'w-full border border-gray-300 font-roboto outline-none rounded-sm py-2 px-4 text-md focus-visible:border-black'
-
-    useEffect(() => {
-        setSet(set + 1)
-    }, [register])
+    const styled = 'w-full border border-gray-300 font-roboto outline-none rounded-sm py-2 px-4 text-md focus-visible:border-black w-full min-h-[150px]'
 
     return (
         <div className='flex flex-col gap-1'>
@@ -36,10 +28,14 @@ const MaskInput = ({ placeholder, name, register, errors, mask, label }: Props) 
                 {label && label.length > 0 &&
                     <label className='text-md w-fit font-medium text-primaryGraffiti' htmlFor={name}>{label}</label>
                 }
-                <InputMask
-                    id={name}
+                <textarea
                     className={error ? errorStyled : styled}
-                    type="text" placeholder={placeholder} {...register(name)} mask={mask} />
+                    type="text"
+                    placeholder={placeholder}
+                    id={name}
+                    {...register(name)}
+                    disabled={disabled}
+                />
             </div>
 
             {error ?
@@ -55,4 +51,4 @@ const MaskInput = ({ placeholder, name, register, errors, mask, label }: Props) 
     )
 }
 
-export default MaskInput
+export default TextareaInput

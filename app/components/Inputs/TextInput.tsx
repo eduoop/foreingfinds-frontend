@@ -11,9 +11,10 @@ type Props = {
     register: any;
     errors: any;
     disabled?: boolean;
+    label?: string;
 }
 
-const TextInput = ({ placeholder, name, register, errors, disabled = false }: Props) => {
+const TextInput = ({ placeholder, name, register, errors, disabled = false, label }: Props) => {
 
     const error: Error = errors[name]
 
@@ -23,16 +24,21 @@ const TextInput = ({ placeholder, name, register, errors, disabled = false }: Pr
 
     return (
         <div className='flex flex-col gap-1'>
-            <input
-                className={error ? errorStyled : styled}
-                type="text" placeholder={placeholder} {...register(name)} disabled={disabled}/>
+            <div className='w-full flex flex-col gap-1'>
+                {label && label.length > 0 &&
+                    <label className='text-md w-fit font-medium text-primaryGraffiti' htmlFor={name}>{label}</label>
+                }
+                <input
+                    className={error ? errorStyled : styled}
+                    type="text" placeholder={placeholder} id={name} {...register(name)} disabled={disabled} />
+            </div>
 
             {error ?
                 <div className='flex items-center'>
                     <span className='text-[13px] font-roboto text-red-600'>{error?.message}</span>
                 </div>
                 :
-                <span className='h-[20px]'/>
+                <span className='h-[20px]' />
             }
 
         </div>

@@ -17,7 +17,7 @@ import Disabled from '@/app/components/Inputs/Disabled'
 
 const registerFormSchema = z.object({
     name: z.string()
-        .nonempty('O e-mail é obrigatório'),
+        .nonempty('O nome é obrigatório'),
     phone: z.string()
         .nonempty('O Telefone é obrigatório').min(11),
     password: z.string().nonempty('A senha é obrigatória').min(6, 'Digite mais de 6 caracters'),
@@ -47,8 +47,6 @@ const completeRegister = ({ params }: { params: any }) => {
     const [loading, setLoading] = useState(false)
 
     const router = useRouter()
-
-    console.log(errors)
 
     const consultToken = async () => {
         console.log(params.key)

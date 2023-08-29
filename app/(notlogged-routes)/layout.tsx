@@ -1,17 +1,18 @@
-import { getServerSession } from 'next-auth'
+"use client"
 import React, { ReactNode } from 'react'
-import { nextAuthOptions } from '../api/auth/[...nextauth]/route'
 import { redirect } from 'next/navigation'
+import { useGlobalUserContext } from '../contexts/User/UserContext'
 
 interface PublicLayoutProps {
     children: ReactNode
 }
 
-const PublicLayout = async ({ children }: PublicLayoutProps) => {
+const PublicLayout = ({ children }: PublicLayoutProps) => {
 
-    const session = await getServerSession(nextAuthOptions)
+    const { user } = useGlobalUserContext()
+    const localUser = localStorage.getItem('user')
 
-    if(session) {
+    if(user || localUser) {
         redirect('/')
     }
 

@@ -203,7 +203,7 @@ const page = () => {
                                 items={categories}
                             />
                         </div>
-                        <div className='w-[50%] flex flex-col gap-1 sm:w-[100%]'>
+                        <div className='w-[50%] flex flex-col gap-1 sm:w-[100%] sm:flex-col-reverse'>
                             <ValueInput
                                 label='Preço'
                                 errors={errors}

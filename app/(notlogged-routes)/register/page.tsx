@@ -89,7 +89,7 @@ const register = () => {
 
           <h2 className='justify-center w-full text-[#ccc] font-roboto text-[15px] flex items-center gap-2'>
             Ja possue uma conta?
-            <Link href="/forgot-password" className='font-roboto text-primaryOrange'>Entrar</Link>
+            <Link href="/login" className='font-roboto text-primaryOrange'>Entrar</Link>
           </h2>
 
         </form>

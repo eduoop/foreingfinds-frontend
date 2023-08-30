@@ -6,11 +6,29 @@ type Props = {
     searchQuery: string
 }
 
+export type Meta = {
+    total: number,
+    per_page: number,
+    current_page?: number,
+    last_page: number,
+    first_page: number,
+    first_page_url: string,
+    last_page_url: string,
+    next_page_url?: string,
+    previous_page_url?: string,
+}
+
+type Data = {
+    meta: Meta,
+    data: Ad[]
+}
+
 const baseUrl = process.env.BASE_URL
 
 const getAdsSearch = async (searchQuery: string) => {
     const res = await fetch(`${baseUrl}/products?search=${searchQuery}`)
-    const ads: Ad[] = await res.json()
+    const data: Data = await res.json()
+    const ads: Ad[] = data.data
     return ads
 }
 

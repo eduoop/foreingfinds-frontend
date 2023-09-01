@@ -6,7 +6,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { Content, ItemSelectIndicator, ItemText, Portal, SelectItem, Trigger, Viewport } from './styles'
 import { BsCheck2Circle, BsListNested, BsTextParagraph } from 'react-icons/bs';
 import { IconType } from "react-icons"
-import { CreateAdFormData } from '@/app/new-ad/page';
+import { CreateAdFormData } from '@/app/(logged-routes)/new-ad/page';
 import { Subcategory } from '@/models/Subcategory';
 import { ProductCategory } from '@/models/ProductCategory';
 

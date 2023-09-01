@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Container } from "./components/Container";
-import ListAdsHome from "./components/Lists/ListAdsHome";
+import ListAdsHome from "./components/Lists/AdsHome/ListAdsHome";
 import 'react-loading-skeleton/dist/skeleton.css'
 import AdSquareSkeleton from "./components/Cards/AdSquareSkeleton";
 

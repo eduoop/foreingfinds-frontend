@@ -4,8 +4,8 @@ import { useSearchParams } from 'next/navigation'
 import React, { Suspense } from 'react'
 import { Container } from '../components/Container'
 import AdSquareSkeleton from '../components/Cards/AdSquareSkeleton'
-import ListAdsHome from '../components/Lists/ListAdsHome'
-import ListAdsHomeSearch from '../components/Lists/ListAdsHomeSearch'
+import ListAdsHome from '../components/Lists/AdsHome/ListAdsHome'
+import ListAdsHomeSearch from '../components/Lists/AdsSearch/ListAdsHomeSearch'
 
 const baseUrl = process.env.BASE_URL
 

@@ -27,7 +27,7 @@ const InputUserRegisterImage = ({ user, image, setImage }: Props) => {
     <label className="h-[100%]" htmlFor='icon-button-file'>
       <input
         className="hidden"
-        accept='image/*'
+        accept="image/png, image/jpg, image/jpeg, image/svg"
         id='icon-button-file'
         type='file'
         onChange={(e: any) => {

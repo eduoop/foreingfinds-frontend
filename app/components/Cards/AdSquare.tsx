@@ -52,6 +52,7 @@ const AdSquare = ({ ad }: Props) => {
         >
           {ad.files.map((adImage) => (
             <img
+              draggable={false}
               className='object-cover w-full h-full select-none rounded-t-md'
               style={{ pointerEvents: "none" }}
               src={adImage.file_url}
@@ -66,7 +67,7 @@ const AdSquare = ({ ad }: Props) => {
           {ad.previous_price ?
             <small className='text-gray-500 line-through'>{ad.previous_price}</small>
             :
-            <div className='h-[15px]'/>
+            <div className='h-[15px]' />
           }
           <h3 className='text-primaryGraffiti text-2xl leading-[22px]'>R$ {ad.price}</h3>
         </div>

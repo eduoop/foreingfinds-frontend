@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import ValueInput from '../components/Inputs/ValueInput';
+import ValueInput from '../../components/Inputs/ValueInput';
 
 import { HiOutlineHome } from 'react-icons/hi'
 import { TbHanger } from 'react-icons/tb'
@@ -22,10 +22,10 @@ import { IoCarOutline } from 'react-icons/io5'
 import { LiaToolsSolid } from 'react-icons/lia'
 import { ProductCategory } from '@/models/ProductCategory';
 import { Subcategory } from '@/models/Subcategory';
-import SelectInputProductCategory from '../components/Inputs/SelectInputProductCategory';
-import SelectInputProductSubcategory from '../components/Inputs/SelectInputProductSubcategory';
-import TextareaInput from '../components/Inputs/TextareaInput';
-import InputProductImage from '../components/FilesInputs/InputProductImage';
+import SelectInputProductCategory from '../../components/Inputs/SelectInputProductCategory';
+import SelectInputProductSubcategory from '../../components/Inputs/SelectInputProductSubcategory';
+import TextareaInput from '../../components/Inputs/TextareaInput';
+import InputProductImage from '../../components/FilesInputs/InputProductImage';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 
@@ -67,8 +67,8 @@ const page = () => {
     }
 
     const saveAd = async (data: CreateAdFormData) => {
-        if (productImages.length <= 0) {
-            toast.error("Selecione pelo menos uma imagem")
+        if (productImages.length <= 1) {
+            toast.error("Selecione pelo menos duas imagens")
             return
         }
 
@@ -76,7 +76,7 @@ const page = () => {
 
         const formData = new FormData();
 
-        productImages.length > 0 && await productImages.map((image) => {
+        productImages.map((image) => {
             formData.append("images", image)
         })
 

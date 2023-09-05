@@ -20,7 +20,7 @@ type Props = {
     register: any;
     items: ProductCategory[];
     itemsIcons: ItemIcons[];
-    setSelectCategory: React.Dispatch<React.SetStateAction<ProductCategory | undefined>>
+    setSelectCategory: React.Dispatch<React.SetStateAction<ProductCategory | undefined>>;
 }
 
 const SelectInputProductCategory = ({ setValue, items, itemsIcons, setSelectCategory, errors, register }: Props) => {
@@ -56,9 +56,11 @@ const SelectInputProductCategory = ({ setValue, items, itemsIcons, setSelectCate
     }
 
     const changeSelect = (value: string) => {
-        setValue("category", value)
-        const category = items.filter(item => item.name === value)[0]
-        if (category) setSelectCategory(category)
+        if (value) {
+            setValue("category", value)
+            const category = items.filter(item => item.name === value)[0]
+            if (category) setSelectCategory(category)
+        }
     }
 
     useEffect(() => {
@@ -68,8 +70,7 @@ const SelectInputProductCategory = ({ setValue, items, itemsIcons, setSelectCate
     return (
         <div className='w-full flex flex-col gap-1'>
             <h2 className='text-md w-fit font-medium text-primaryGraffiti'>Categoria</h2>
-
-            <Select.Root onValueChange={(value) => changeSelect(value)}>
+            <Select.Root onValueChange={(value) => changeSelect(value)} >
                 <Trigger {...register("category")} invalid={error ? true : false}>
                     <Select.Value placeholder="Escolha a categoria" />
                     <Select.Icon style={{ display: 'flex', alignItems: 'center' }}>

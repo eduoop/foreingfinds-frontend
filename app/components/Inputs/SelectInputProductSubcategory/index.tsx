@@ -60,7 +60,9 @@ const SelectInputProductSubcategory = ({ setValue, items, itemsIcons, errors, re
     }
 
     const changeSelect = (value: string) => {
-        setValue("subcategory", value)
+        if (value) {
+            setValue("subcategory", value)
+        }
     }
 
     useEffect(() => {

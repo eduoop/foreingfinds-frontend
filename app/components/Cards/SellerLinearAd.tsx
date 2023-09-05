@@ -12,10 +12,9 @@ import GetDateFromDatetime from '@/utils/GetDateFromDatetime'
 
 type Props = {
     ad: Ad;
-    confirmFunction: () => void;
 }
 
-const LinearAd = ({ ad, confirmFunction }: Props) => {
+const SellerLinearAd = ({ ad }: Props) => {
 
     return (
         <div className='w-full flex gap-4 border-b-2 border-weakGray pb-10'>
@@ -46,24 +45,9 @@ const LinearAd = ({ ad, confirmFunction }: Props) => {
                         <small className='text-gray-500 text-[14px]'>{GetDateFromDatetime(ad.updated_at)}</small>
                     </div>
                 </div>
-
-                <div className='flex items-center gap-4'>
-                    <Link href={`edit-ad/${ad.id}`}>
-                        <div className='flex items-center gap-1 cursor-pointer rounded-full px-2 py-1 duration-100 hover:bg-primaryOrange/20'>
-                            <TbEdit className='text-primaryOrange' />
-                            <small className='text-primaryOrange text-[14px]'>Editar</small>
-                        </div>
-                    </Link>
-                    <DeleteDropDown confirmFunction={confirmFunction} message='Tem ceteza que deseja excluir?'>
-                        <div className='flex items-center gap-1 cursor-pointer rounded-full px-2 py-1 duration-100 hover:bg-primaryOrange/20'>
-                            <HiOutlineTrash className='text-primaryOrange' />
-                            <small className='text-primaryOrange text-[14px]'>Excluir</small>
-                        </div>
-                    </DeleteDropDown>
-                </div>
             </div>
         </div>
     )
 }
 
-export default LinearAd
+export default SellerLinearAd

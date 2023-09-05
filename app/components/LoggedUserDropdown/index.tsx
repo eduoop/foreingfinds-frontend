@@ -29,19 +29,19 @@ const LoggedUserDropdown = ({ children }: Props) => {
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content className='shadow-lg rounded-md w-[300px] bg-white z-10'>
-          <DropdownMenu.Item onClick={() => redirect("profile")} className='cursor-pointer p-3 duration-200 hover:bg-primaryGray outline-none group rounded-tl-md rounded-tr-md'>
+          <DropdownMenu.Item onClick={() => redirect("/profile")} className='cursor-pointer p-3 duration-200 hover:bg-primaryGray outline-none group rounded-tl-md rounded-tr-md'>
             <div className='flex items-center gap-3 duration-200 group-hover:text-primaryOrange'>
               <BiUser className="w-[18px] h-[18px]" />
               <h2 className='font-roboto font-[400]'>Meu perfil</h2>
             </div>
           </DropdownMenu.Item>
-          <DropdownMenu.Item onClick={() => redirect("my-ads")} className='cursor-pointer p-3 duration-200 hover:bg-primaryGray outline-none group'>
+          <DropdownMenu.Item onClick={() => redirect("/my-ads")} className='cursor-pointer p-3 duration-200 hover:bg-primaryGray outline-none group'>
             <div className='flex items-center gap-3 duration-200 group-hover:text-primaryOrange'>
               <BsViewList className="w-[18px] h-[18px]" />
               <h2 className='font-roboto font-[400]'>Meus anúncios</h2>
             </div>
           </DropdownMenu.Item>
-          <DropdownMenu.Item onClick={() => redirect("new-ad")} className='cursor-pointer p-3 duration-200 hover:bg-primaryGray outline-none group'>
+          <DropdownMenu.Item onClick={() => redirect("/new-ad")} className='cursor-pointer p-3 duration-200 hover:bg-primaryGray outline-none group'>
             <div className='flex items-center gap-3 duration-200 group-hover:text-primaryOrange'>
               <GoPlusCircle className="w-[18px] h-[18px]" />
               <h2 className='font-roboto font-[400]'>Novo anúncio</h2>

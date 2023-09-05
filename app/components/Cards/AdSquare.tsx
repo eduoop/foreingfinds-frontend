@@ -7,6 +7,8 @@ import { SlArrowLeft, SlArrowRight } from "react-icons/sl"
 
 import 'react-multi-carousel/lib/styles.css';
 import { StyledCarousel } from './styles';
+import FilterIntegerValueToReal from '@/utils/FilterIntegerValueToReal';
+import Link from 'next/link';
 
 type Props = {
   ad: Ad
@@ -41,10 +43,11 @@ const AdSquare = ({ ad }: Props) => {
   }
 
   return (
-    <div className='flex flex-col w-full h-full bg-white border-2 border-weakGray gap-2 shadow-lg cursor-pointer rounded-md'>
+    <Link href={`/ad/${ad.id}`} className='flex flex-col w-full h-full bg-white border-2 border-weakGray gap-2 shadow-lg cursor-pointer rounded-md'>
       <div className='w-auto tablet:w-[100%] h-[100%] tablet:h-[200px] group'>
         <StyledCarousel
           responsive={responsive}
+          infinite={true}
           className='h-full rounded-t-md'
           customLeftArrow={<SlArrowLeft className="absolute text-xl top-1/2 left-4 cursor-pointer text-white hidden group-hover:block" />}
           customRightArrow={<SlArrowRight className="absolute text-xl top-1/2 right-4 cursor-pointer text-white hidden group-hover:block" />}
@@ -65,15 +68,15 @@ const AdSquare = ({ ad }: Props) => {
       <div className='flex flex-col p-3'>
         <div>
           {ad.previous_price ?
-            <small className='text-gray-500 line-through'>{ad.previous_price}</small>
+            <small className='text-gray-500 line-through'>{FilterIntegerValueToReal(ad.previous_price)}</small>
             :
             <div className='h-[15px]' />
           }
-          <h3 className='text-primaryGraffiti text-2xl leading-[22px]'>R$ {ad.price}</h3>
+          <h3 className='text-primaryGraffiti text-2xl leading-[22px]'>{FilterIntegerValueToReal(ad.price)}</h3>
         </div>
         <h2 className='text-primaryGraffiti text-md font-light'>{ad.title}</h2>
       </div>
-    </div>
+    </Link>
   )
 }
 

@@ -37,7 +37,9 @@ const ListMyAds = async () => {
 
         if (res.ok) {
             setMyAds(myAds.filter(ad => ad.id !== id))
-            toast("Anúncio deletado com sucesso!")
+            toast.success("Anúncio deletado com sucesso!")
+        } else {
+            toast.success("Algo deu errado!")
         }
     }
 

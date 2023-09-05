@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import ValueInput from '../../components/Inputs/ValueInput';
 
 import { HiOutlineHome } from 'react-icons/hi'
 import { TbHanger } from 'react-icons/tb'
@@ -28,6 +27,7 @@ import TextareaInput from '../../components/Inputs/TextareaInput';
 import InputProductImage from '../../components/FilesInputs/InputProductImage';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
+import RealMask from '@/app/components/Inputs/RealMask';
 
 const createAdDataSchema = z.object({
     title: z.string().nonempty('O titulo é obrigatório').min(3, 'Digite mais de 2 caracters'),
@@ -50,6 +50,7 @@ const page = () => {
     const [subcategories, setSubcategories] = useState<Subcategory[]>([])
 
     const [productImages, setProductImages] = useState<any[]>([])
+    const [valor, setValor] = useState<string>('');
 
     const [selectedCategory, setSelectCategory] = useState<ProductCategory>()
     const router = useRouter()
@@ -81,7 +82,7 @@ const page = () => {
         })
 
         const title = data.title
-        const price = data.price
+        const price = data.price.split("$")[1].replace(".", "")
         const description = data.description
 
         const category = categories.filter((categoryMap) => categoryMap.name === data.category)[0]
@@ -91,6 +92,7 @@ const page = () => {
         formData.append("price", price)
         formData.append("description", description)
         formData.append("subcategoryId", JSON.stringify(subcategoryId))
+        formData.append("categoryId", JSON.stringify(category.id))
 
         const res = await fetch(`${baseUrl}/products`, {
             method: 'post',
@@ -204,12 +206,14 @@ const page = () => {
                             />
                         </div>
                         <div className='w-[50%] flex flex-col gap-1 sm:w-[100%] sm:flex-col-reverse'>
-                            <ValueInput
+                            <RealMask
                                 label='Preço'
                                 errors={errors}
                                 register={register}
-                                placeholder='R$ 25,50'
+                                placeholder='R$ 50'
                                 name='price'
+                                setValor={setValor}
+                                valor={valor}
                             />
                             <SelectInputProductSubcategory
                                 errors={errors}

@@ -21,7 +21,11 @@ const EditAd = async ({ adId }: Props) => {
     let ad = await getAd(adId)
 
     return (
-        <EditAdClient ad={ad}/>
+        <>
+            {ad &&
+                <EditAdClient ad={ad} />
+            }
+        </>
     )
 }
 

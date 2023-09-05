@@ -1,11 +1,13 @@
 import { File } from "./File"
+import { ProductCategory } from "./ProductCategory"
 import { Subcategory } from "./Subcategory"
+import { User } from "./user"
 
 export type Ad = {
     id: number,
     title: string,
-    price: string,
-    previous_price: string | null,
+    price: number,
+    previous_price: number | null,
     description: string,
     user_id: number,
     views: number,
@@ -13,5 +15,7 @@ export type Ad = {
     updated_at: string,
     subcategory_id: number,
     subcategory: Subcategory,
-    files: File[]
+    productCategory: ProductCategory,
+    files: File[],
+    user: User
 }

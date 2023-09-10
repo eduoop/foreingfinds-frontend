@@ -11,6 +11,7 @@ export type Ad = {
     description: string,
     user_id: number,
     views: number,
+    product_category_id: number,
     created_at: string,
     updated_at: string,
     subcategory_id: number,

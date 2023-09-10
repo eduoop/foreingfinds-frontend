@@ -14,6 +14,7 @@ import PersonIcon from "../../../assets/person.svg";
 import Link from 'next/link';
 import { MdEmail } from 'react-icons/md';
 import GetYearFromDate from '@/utils/GetYearFromDate';
+import RelatedAds from '../RelatedAds/RelatedAds';
 
 const siteUrl = process.env.SITE_URL
 
@@ -27,8 +28,6 @@ const ShowAdClient = ({ ad }: Props) => {
     navigator.clipboard.writeText(`${siteUrl}/ad/${ad.id}`)
     toast.success("Link copiado!")
   }
-
-  console.log(ad)
 
   return (
     <Container bgColor='#ebebeb' minAllVh={true}>
@@ -72,6 +71,12 @@ const ShowAdClient = ({ ad }: Props) => {
                   <Link href="/" className='text-primaryOrange'>{ad.subcategory.name}</Link>
                 </div>
               </div>
+            </div>
+
+            <div className='w-full h-[1px] rounded-full bg-slate-400/60 my-5' />
+
+            <div className='w-full mb-32'>
+              <RelatedAds adId={ad.id} categoryId={ad.product_category_id} price={ad.price} subcategoryId={ad.subcategory_id} />
             </div>
           </div>
 
@@ -134,15 +139,14 @@ const ShowAdClient = ({ ad }: Props) => {
                 <div className='w-full h-[1px] rounded-full bg-slate-400/60 my-5' />
 
                 <div className='flex flex-col gap-3'>
-
                   <div className='flex gap-3 items-center'>
                     <div className='p-1 rounded-full bg-green-600 w-fit'>
                       <MdEmail fontSize={20} className="text-white" />
                     </div>
                     <h2 className='text-[14px] text-neutralBlack'>Email verificado</h2>
                   </div>
-
                 </div>
+
 
               </div>
             </WhiteCardAd>

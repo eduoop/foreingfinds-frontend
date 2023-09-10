@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import toast, { Toaster } from 'react-hot-toast';
 import Header from './components/Headers/Header';
 import { UserContextProvider } from './contexts/User/UserContext';
+import ScrollToTop from './components/ScrollToTop';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -20,6 +21,7 @@ export default function RootLayout({
       </head>
       <html lang="en" className='flex flex-col'>
         <body>
+          <ScrollToTop />
           <UserContextProvider>
             <Toaster toastOptions={{
               className: '',

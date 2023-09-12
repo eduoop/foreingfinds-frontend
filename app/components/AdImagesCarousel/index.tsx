@@ -1,9 +1,7 @@
-"use client"
 import { File } from '@/models/File'
 import React from 'react'
 import Carousel, { ArrowProps } from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { SlArrowLeft, SlArrowRight } from "react-icons/sl"
 
 type Props = {
     images: File[];
@@ -36,6 +34,7 @@ export const AdImagesCarousel = ({ images }: Props) => {
                 responsive={responsive}
                 infinite={true}
                 className='w-full'
+                ssr={true}
             >
                 {images.map((adImage, index) => (
                     <div key={adImage.id + index} className='h-[280px] tablet:h-[402px] relative'>
@@ -45,7 +44,7 @@ export const AdImagesCarousel = ({ images }: Props) => {
                         </div>
                         <img
                             draggable={false}
-                            className='w-full object-contain max-h-[402px] absolute translate-x-[-50%] translate-y-[-50%] top-[50%] right-[50%] z-10'
+                            className='w-full object-contain max-h-[402px] absolute translate-x-[50%] translate-y-[-50%] top-[50%] right-[50%] z-10'
                             style={{ pointerEvents: "none" }}
                             src={adImage.file_url}
                             alt="ad image"

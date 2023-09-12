@@ -89,7 +89,7 @@ export default async function ListSellerAds({ id }: Props) {
             </div>
             <div className='w-full px-6 py-3 rounded-md border border-gray-400/30 mb-4'>
                 <h1 className='text-gray-700 font-normal text-md flex items-center gap-2'>
-                    <span className='text-gray-700 font-medium text-lg'>{results}</span> Anúncio
+                    <span className='text-gray-700 font-medium text-lg'>{results}</span> Anúncio(s)
                 </h1>
             </div>
             <ListSellerAdsClient id={id} getAds={getEndSett} ads={stateAds} results={results} />

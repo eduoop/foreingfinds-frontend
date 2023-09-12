@@ -30,7 +30,7 @@ const responsive = {
     },
     mobile: {
         breakpoint: { max: 464, min: 0 },
-        items: 1
+        items: 2
     }
 };
 
@@ -43,14 +43,13 @@ const getRelatedAds = async (categoryId: number, subcategoryId: number, price: n
     return filterData
 }
 
-const RelatedAdsClient = ({ categoryId, subcategoryId, price, adId }: Props) => {
-
-
-    const StyledCarousel = styled(Carousel)`
+const StyledCarousel = styled(Carousel)`
         li {
-            padding-right: 20px
+            padding-right: 20px;
         }
     `
+
+const RelatedAdsClient = ({ categoryId, subcategoryId, price, adId }: Props) => {
 
     const [adsFinder, setAdsFinder] = useState<Ad[]>([])
 
@@ -69,8 +68,8 @@ const RelatedAdsClient = ({ categoryId, subcategoryId, price, adId }: Props) => 
                 <>
                     <h1 className='text-[20px] font-medium text-neutralBlack w-full mb-5'>Relacionados</h1>
                     <StyledCarousel responsive={responsive} className='w-full'>
-                        {adsFinder.map((ad) => (
-                            <AdRelated ad={ad} />
+                        {adsFinder.map((ad, index) => (
+                            <AdRelated key={index + ad.id} ad={ad} />
                         ))}
                     </StyledCarousel>
                 </>

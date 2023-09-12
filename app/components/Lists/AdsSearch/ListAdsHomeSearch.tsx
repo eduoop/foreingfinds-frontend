@@ -69,7 +69,7 @@ export default async function ListAdsHomeSearch({ searchQuery }: Props) {
     }, [searchQuery])
 
     return (
-        <div className='w-full  mb-16'>
+        <div className='w-full mb-16'>
             <ListAdsSearchClient fetchedAds={fetchedAds} setFetchedAds={setFetchedAds} getAds={getEndSett} ads={stateAds} results={results} page={page} setPage={setPage}/>
         </div>
 

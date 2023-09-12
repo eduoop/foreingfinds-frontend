@@ -75,9 +75,7 @@ const ShowAdClient = ({ ad }: Props) => {
 
             <div className='w-full h-[1px] rounded-full bg-slate-400/60 my-5' />
 
-            <div className='w-full mb-32'>
-              <RelatedAds adId={ad.id} categoryId={ad.product_category_id} price={ad.price} subcategoryId={ad.subcategory_id} />
-            </div>
+            <RelatedAds adId={ad.id} categoryId={ad.product_category_id} price={ad.price} subcategoryId={ad.subcategory_id} />
           </div>
 
           <div className='w-full tablet:w-[40%] h-full flex flex-col gap-2 mb-10'>

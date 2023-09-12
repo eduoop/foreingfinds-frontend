@@ -66,12 +66,14 @@ const RelatedAdsClient = ({ categoryId, subcategoryId, price, adId }: Props) => 
         <div className='w-full'>
             {adsFinder.length > 0 &&
                 <>
-                    <h1 className='text-[20px] font-medium text-neutralBlack w-full mb-5'>Relacionados</h1>
-                    <StyledCarousel responsive={responsive} className='w-full'>
-                        {adsFinder.map((ad, index) => (
-                            <AdRelated key={index + ad.id} ad={ad} />
-                        ))}
-                    </StyledCarousel>
+                    <div className='w-full mb-4 tablet:mb-32'>
+                        <h1 className='text-[20px] font-medium text-neutralBlack w-full mb-5'>Relacionados</h1>
+                        <StyledCarousel responsive={responsive} className='w-full'>
+                            {adsFinder.map((ad, index) => (
+                                <AdRelated key={index + ad.id} ad={ad} />
+                            ))}
+                        </StyledCarousel>
+                    </div>
                 </>
             }
         </div>

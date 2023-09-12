@@ -17,7 +17,7 @@ const page = () => {
     const encodedSearchQuery = encodeURIComponent(searchQuery || '')
 
     return (
-        <Container>
+        <Container minAllVh={true}>
             <>
                 {searchQuery ?
 

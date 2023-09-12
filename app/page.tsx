@@ -7,7 +7,7 @@ import AdSquareSkeleton from "./components/Cards/AdSquareSkeleton";
 export default async function Home() {
 
   return (
-    <Container>
+    <Container minAllVh={true}>
       <>
         <h1 className='text-2xl mt-7 font-normal text-primaryGraffiti mb-5'>Anúncios publicados</h1>
         <Suspense

@@ -4,6 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Header from './components/Headers/Header';
 import { UserContextProvider } from './contexts/User/UserContext';
 import ScrollToTop from './components/ScrollToTop';
+import Footer from './components/Footer';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -38,6 +39,7 @@ export default function RootLayout({
             }} />
             <Header />
             {children}
+          <Footer />
           </UserContextProvider>
         </body>
       </html>

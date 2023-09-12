@@ -7,6 +7,8 @@ import { Search } from '../Searchs/Search'
 import LoggedUser from '../LoggedUser'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
+import { useGlobalUserContext } from '@/app/contexts/User/UserContext'
+import {RiLoginCircleLine} from "react-icons/ri"
 
 const Header = () => {
 
@@ -16,6 +18,8 @@ const Header = () => {
   const currentPageWithoutBar = currentPage.replace("/", "")
 
   const render = !hiddenIn.includes(currentPageWithoutBar)
+
+  const { user } = useGlobalUserContext()
 
   return (
     <>
@@ -30,7 +34,13 @@ const Header = () => {
                 <Search />
               </div>
               <div className='h-full flex items-center gap-2'>
-                <LoggedUser />
+                {user === null ?
+                  <Link href="/login" className='h-[50px] w-[50px] flex items-center justify-center rounded-full text-white bg-primaryOrange text-3xl'>
+                    <RiLoginCircleLine/>
+                  </Link>
+                  :
+                  <LoggedUser />
+                }
                 <Link href="/new-ad" className='rounded-full py-2 px-5 bg-primaryOrange text-white duration-200 hover:bg-orange-700/90 font-roboto hidden tablet:block'>Anunciar</Link>
               </div>
             </div>

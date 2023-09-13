@@ -35,7 +35,7 @@ const Header = () => {
               </div>
               <div className='h-full flex items-center gap-2'>
                 {user === null ?
-                  <Link href="/login" className='h-[50px] w-[50px] flex items-center justify-center rounded-full text-white bg-primaryOrange text-3xl'>
+                  <Link href="/login" className='flex tablet:hidden h-[50px] w-[50px] items-center justify-center rounded-full text-white bg-primaryOrange text-3xl'>
                     <RiLoginCircleLine/>
                   </Link>
                   :

@@ -40,10 +40,10 @@ const AccountData = () => {
   const [loading, setLoading] = useState(false)
   const [image, setImage] = useState<any>();
 
-  const { user, setUser, refreshContext, refreshStorage } = useGlobalUserContext()
-  const token = localStorage.getItem("authToken")
+  const { user, setUser, refreshContext } = useGlobalUserContext()
 
   const saveAvatar = async () => {
+    const token = localStorage.getItem("authToken")
 
     if (image) {
 
@@ -83,6 +83,7 @@ const AccountData = () => {
 
   const saveProfile = async (data: EditUserFormData) => {
     setLoading(true)
+    const token = localStorage.getItem("authToken")
 
     const name = data.name
     const phone = data.phone

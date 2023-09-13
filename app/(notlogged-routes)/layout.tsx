@@ -10,9 +10,8 @@ interface PublicLayoutProps {
 const PublicLayout = ({ children }: PublicLayoutProps) => {
 
     const { user } = useGlobalUserContext()
-    const localUser = localStorage.getItem('user')
 
-    if(user || localUser) {
+    if(user) {
         redirect('/')
     }
 

@@ -7,9 +7,9 @@ import { useGlobalUserContext } from '@/app/contexts/User/UserContext';
 const LogoutUserDropdown = () => {
 
     const { singout } = useGlobalUserContext()
-    const token = localStorage.getItem("authToken")
 
     const logout = async () => {
+        const token = localStorage.getItem("authToken")
         singout(token)
     }
 

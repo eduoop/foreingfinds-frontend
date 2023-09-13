@@ -17,7 +17,6 @@ const GlobalContext = createContext<UserContextProps>(null!)
 
 export const UserContextProvider = ({ children }: { children: any }) => {
     const [user, setUser] = useState<User | null>(null)
-    const token = localStorage.getItem(`authToken`)
     const baseUrl = process.env.BASE_URL
 
     useEffect(() => {
@@ -63,6 +62,8 @@ export const UserContextProvider = ({ children }: { children: any }) => {
     };
 
     const singout = async () => {
+        const token = localStorage.getItem(`authToken`)
+
         await fetch(`${baseUrl}/auth`, {
             method: 'delete',
             headers: {

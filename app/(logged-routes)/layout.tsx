@@ -10,9 +10,8 @@ interface PrivateLayoutProps {
 const PrivateLayout = ({ children }: PrivateLayoutProps) => {
 
     const { user } = useGlobalUserContext()
-    const localUser = localStorage.getItem('user')
 
-    if(!user || !localUser) {
+    if(!user) {
         redirect('/login')
     }
 

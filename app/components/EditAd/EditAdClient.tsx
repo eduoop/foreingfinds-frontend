@@ -51,7 +51,6 @@ const EditAdClient = ({ ad }: Props) => {
     const { register, handleSubmit, formState: { errors }, setValue, getValues } = useForm<UpdateAdFormData>({
         resolver: zodResolver(updateAdDataSchema)
     })
-    const token = localStorage.getItem("authToken")
     const [categories, setCategories] = useState<ProductCategory[]>([])
     const [subcategories, setSubcategories] = useState<Subcategory[]>([])
 
@@ -67,6 +66,8 @@ const EditAdClient = ({ ad }: Props) => {
     const [deleteImagesNames, setDeleteImagesNames] = useState<string[]>([])
 
     const getCategories = async () => {
+        const token = localStorage.getItem("authToken")
+
         const res = await fetch(`${baseUrl}/products-categories`, {
             method: 'GET',
             headers: {
@@ -82,6 +83,8 @@ const EditAdClient = ({ ad }: Props) => {
     }
 
     const saveAd = async (data: UpdateAdFormData) => {
+        const token = localStorage.getItem("authToken")
+
         if (productImages.length + productCreatedImages.length <= 1) {
             toast.error("Selecione pelo menos duas imagens")
             return

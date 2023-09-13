@@ -5,9 +5,10 @@ import LinearAd from '../../Cards/LinearAd'
 import { toast } from 'react-hot-toast'
 
 const baseUrl = process.env.BASE_URL
-const token = localStorage.getItem("authToken")
 
 const getMyAds = async () => {
+    const token = localStorage.getItem("authToken")
+
     const res = await fetch(`${baseUrl}/users-ads`, {
         method: 'get',
         headers: {
@@ -28,6 +29,8 @@ const ListMyAds = async () => {
     }
 
     const deleteAd = async (id: number) => {
+        const token = localStorage.getItem("authToken")
+
         const res = await fetch(`${baseUrl}/products/${id}`, {
             method: 'delete',
             headers: {

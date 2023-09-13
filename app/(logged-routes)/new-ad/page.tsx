@@ -45,7 +45,6 @@ const page = () => {
     const { register, handleSubmit, formState: { errors }, setValue, getValues } = useForm<CreateAdFormData>({
         resolver: zodResolver(createAdDataSchema)
     })
-    const token = localStorage.getItem("authToken")
     const [categories, setCategories] = useState<ProductCategory[]>([])
     const [subcategories, setSubcategories] = useState<Subcategory[]>([])
 
@@ -57,6 +56,8 @@ const page = () => {
     const [loading, setLoading] = useState(false)
 
     const getCategories = async () => {
+        const token = localStorage.getItem("authToken")
+
         const res = await fetch(`${baseUrl}/products-categories`, {
             method: 'GET',
             headers: {
@@ -68,6 +69,8 @@ const page = () => {
     }
 
     const saveAd = async (data: CreateAdFormData) => {
+        const token = localStorage.getItem("authToken")
+
         if (productImages.length <= 1) {
             toast.error("Selecione pelo menos duas imagens")
             return

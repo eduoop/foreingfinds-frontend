@@ -45,7 +45,7 @@ const ForgotPassword = () => {
                 },
                 body: JSON.stringify({
                     email: email,
-                    redirectUrl: "http://localhost:3000/forgot-password",
+                    redirectUrl: "https://foreingfinds-frontend.vercel.app/forgot-password",
                 })
             })
                 .then((res) => {

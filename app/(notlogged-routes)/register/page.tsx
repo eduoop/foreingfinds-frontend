@@ -45,7 +45,7 @@ const register = () => {
         },
         body: JSON.stringify({
           email: email,
-          redirectUrl: "http://localhost:3000/complete-register",
+          redirectUrl: "https://foreingfinds-frontend.vercel.app/complete-register",
           role: "user"
         })
       })

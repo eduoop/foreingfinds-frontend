@@ -29,6 +29,8 @@ export const UserContextProvider = ({ children }: { children: any }) => {
 
     const signin = async (email: string, password: string) => {
 
+        console.log(baseUrl)
+
         const data = await fetch(`${baseUrl}/auth`, {
             method: "POST",
             headers: {

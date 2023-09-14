@@ -21,7 +21,7 @@ const getMyAds = async () => {
     return data
 }
 
-const ListMyAds = async () => {
+const ListMyAds = () => {
 
     const [myAds, setMyAds] = useState<Ad[]>([])
     const [loading, setLoading] = useState(false)

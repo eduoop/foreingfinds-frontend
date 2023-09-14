@@ -19,16 +19,18 @@ const LinearAd = ({ ad, confirmFunction }: Props) => {
 
     return (
         <div className='w-full flex gap-4 border-b-2 border-weakGray pb-10'>
-            <Link href={`/ad/${ad.id}`}>
-                <div className='w-[112px] h-[112px] rounded-md'>
-                    <img
-                        className='w-full h-full object-cover rounded-md'
-                        src={ad.files[0].file_url}
-                        alt="product thumbnail"
-                        draggable={false}
-                    />
-                </div>
-            </Link>
+            {ad &&
+                <Link href={`/ad/${ad.id}`}>
+                    <div className='w-[112px] h-[112px] rounded-md'>
+                        <img
+                            className='w-full h-full object-cover rounded-md'
+                            src={ad.files[0].file_url}
+                            alt="product thumbnail"
+                            draggable={false}
+                        />
+                    </div>
+                </Link>
+            }
 
             <div className='flex flex-col'>
                 <Link href={`/ad/${ad.id}`} className='group'>

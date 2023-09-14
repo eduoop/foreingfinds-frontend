@@ -74,7 +74,7 @@ const AdSquare = ({ ad }: Props) => {
             :
             <div className='h-[15px]' />
           }
-          <h3 className='text-primaryGraffiti text-xl tablet:text-2xl leading-[22px]'>{FilterIntegerValueToReal(ad.price)}</h3>
+          <h3 className='text-primaryGraffiti text-md tablet:text-2xl leading-[22px]'>{FilterIntegerValueToReal(ad.price)}</h3>
         </div>
         <h2 className='text-primaryGraffiti text-md font-light'>{ad.title}</h2>
       </Link>

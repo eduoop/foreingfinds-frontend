@@ -24,10 +24,13 @@ const getMyAds = async () => {
 const ListMyAds = async () => {
 
     const [myAds, setMyAds] = useState<Ad[]>([])
+    const [loading, setLoading] = useState(false)
 
     const FindMyAds = async () => {
+        setLoading(true)
         let myAdsFetched = await getMyAds()
         setMyAds(myAdsFetched)
+        setLoading(false)
     }
 
     const deleteAd = async (id: number) => {
@@ -54,7 +57,7 @@ const ListMyAds = async () => {
 
     return (
         <div className='flex flex-col w-full gap-10'>
-            {myAds && myAds.length > 0 ? myAds.map((ad) => (
+            {myAds && !loading && myAds.length > 0 ? myAds.map((ad) => (
                 <LinearAd ad={ad} confirmFunction={() => deleteAd(ad.id)} />
             ))
                 :

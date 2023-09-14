@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import Header from './components/Headers/Header';
 import { UserContextProvider } from './contexts/User/UserContext';
 import ScrollToTop from './components/ScrollToTop';

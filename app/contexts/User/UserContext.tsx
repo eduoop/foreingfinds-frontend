@@ -18,6 +18,7 @@ const GlobalContext = createContext<UserContextProps>(null!)
 export const UserContextProvider = ({ children }: { children: any }) => {
     const [user, setUser] = useState<User | null>(null)
     const baseUrl = process.env.BASE_URL
+    const [logged, setLogged] = useState(false)
 
     useEffect(() => {
         const recoverdUser = localStorage.getItem("user");
@@ -27,7 +28,18 @@ export const UserContextProvider = ({ children }: { children: any }) => {
         }
     }, []);
 
+    useEffect(() => {
+        if (logged) {
+            const recoverdUser = localStorage.getItem("user");
+
+            if (recoverdUser) {
+                setUser(JSON.parse(recoverdUser));
+            }
+        }
+    }, [logged])
+
     const signin = async (email: string, password: string) => {
+
         const data = await fetch(`${baseUrl}/auth`, {
             method: "POST",
             headers: {
@@ -41,15 +53,15 @@ export const UserContextProvider = ({ children }: { children: any }) => {
 
         const res = await data.json()
 
-        console.log(res)
-
-        if (res) {
-            setUser(res.user)
+        if (data.ok === true) {
+            // setUser(res.user)
 
             const loggedUser = res.user
             setToken(res.token.token)
 
             localStorage.setItem("user", JSON.stringify(loggedUser));
+
+            setLogged(true)
 
             return true
         }

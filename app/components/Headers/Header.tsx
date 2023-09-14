@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Container } from '../Container'
 import Logo from '@/assets/logo.png'
 import Image from 'next/image'
@@ -26,9 +26,6 @@ const Header = () => {
       return render
     }
   }
-
-  console.log(currentPageWithoutBar)
-
   const { user } = useGlobalUserContext()
 
   return (

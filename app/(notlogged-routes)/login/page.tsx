@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import TextInput from '../../components/Inputs/TextInput'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -41,13 +41,15 @@ const login = () => {
     const email = data.email
     const password = data.password
 
-    signin(email, password).then(() => {
+    const logged = await signin(email, password)
+
+    if (logged) {
       setLoading(false)
-      router.replace("/")
-    }).catch((err) => {
+      router.push("/")
+    } else {
       setLoading(false)
       toast.error("Conta não encontrada")
-    })
+    }
   }
 
   return (

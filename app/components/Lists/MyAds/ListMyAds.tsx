@@ -3,6 +3,8 @@ import { Ad } from '@/models/Ad'
 import React, { useEffect, useState } from 'react'
 import LinearAd from '../../Cards/LinearAd'
 import { toast } from 'react-hot-toast'
+import Link from 'next/link'
+import {AiOutlinePlus} from "react-icons/ai"
 
 const baseUrl = process.env.BASE_URL
 
@@ -52,9 +54,12 @@ const ListMyAds = async () => {
 
     return (
         <div className='flex flex-col w-full gap-10'>
-            {myAds && myAds.map((ad) => (
+            {myAds && myAds.length > 0 ? myAds.map((ad) => (
                 <LinearAd ad={ad} confirmFunction={() => deleteAd(ad.id)} />
-            ))}
+            ))
+                :
+                <Link className='flex items-center gap-3 rounded-full py-2 px-4 bg-primaryOrange w-fit text-white text-xl' href="/new-ad">Adicionar <AiOutlinePlus fontSize={25}/></Link>
+            }
         </div>
     )
 }

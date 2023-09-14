@@ -5,7 +5,7 @@ import React, { Suspense } from 'react'
 
 const page = () => {
   return (
-    <Container>
+    <Container minAllVh={true}>
       <>
         <h1 className='text-2xl mt-7 font-normal text-primaryGraffiti mb-5'>Meus anúncios</h1>
         <Suspense

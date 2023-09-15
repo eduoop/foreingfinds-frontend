@@ -44,7 +44,7 @@ const AdSquare = ({ ad }: Props) => {
 
   return (
     <div className='flex flex-col w-full h-full bg-white border-2 border-weakGray gap-2 shadow-lg cursor-pointer rounded-md'>
-      <div className='w-auto tablet:w-[100%] h-[100%] tablet:h-[200px] group'>
+      <div className=':w-[100%] h-[200px] group'>
         <StyledCarousel
           responsive={responsive}
           infinite={true}
@@ -54,15 +54,21 @@ const AdSquare = ({ ad }: Props) => {
           renderArrowsWhenDisabled
         >
           {ad.files.map((adImage) => (
-            <Link href={`/ad/${ad.id}`} className='flex flex-col w-full h-full bg-white border-2 border-weakGray gap-2 shadow-lg cursor-pointer rounded-md'>
-              <img
-                draggable={false}
-                className='object-cover w-full h-full select-none rounded-t-md'
-                style={{ pointerEvents: "none" }}
-                src={adImage.file_url}
-                alt="ad image"
-              />
-            </Link>
+            <>
+              <Link href={`/ad/${ad.id}`} className='w-[100%] h-[200px] relative'>
+                <div
+                  style={{ backgroundImage: `url(${adImage.file_url})`, filter: "blur(8px)" }}
+                  className='w-full h-full bg-gray-200 bg-cover bg-center'>
+                </div>
+                <img
+                  draggable={false}
+                  className='w-full h-full object-contain absolute translate-y-[50%] translate-x-[50%] bottom-[50%] right-[50%] z-10'
+                  style={{ pointerEvents: "none" }}
+                  src={adImage.file_url}
+                  alt="ad image"
+                />
+              </Link>
+            </>
           ))}
         </StyledCarousel>
       </div>

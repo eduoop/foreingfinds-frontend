@@ -57,8 +57,7 @@ const AdSquare = ({ ad }: Props) => {
             <>
               <Link href={`/ad/${ad.id}`} className='w-[100%] h-[200px] relative'>
                 <div
-                  style={{ backgroundImage: `url(${adImage.file_url})`, filter: "blur(8px)" }}
-                  className='w-full h-full bg-gray-200 bg-cover bg-center'>
+                  className='w-full h-full bg-[#e5e5e5]'>
                 </div>
                 <img
                   draggable={false}

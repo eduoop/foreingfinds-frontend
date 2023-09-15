@@ -65,11 +65,11 @@ const ShowAdClient = ({ ad }: Props) => {
               <div className='flex gap-5 tablet:gap-10 mt-5'>
                 <div className='flex flex-col'>
                   <small>Categoria</small>
-                  <Link href="/" className='text-primaryOrange'>{ad.productCategory.name}</Link>
+                  <h2 className='text-primaryOrange'>{ad.productCategory.name}</h2>
                 </div>
                 <div className='flex flex-col'>
                   <small>Subcategoria</small>
-                  <Link href="/" className='text-primaryOrange'>{ad.subcategory.name}</Link>
+                  <h2 className='text-primaryOrange'>{ad.subcategory.name}</h2>
                 </div>
               </div>
             </div>

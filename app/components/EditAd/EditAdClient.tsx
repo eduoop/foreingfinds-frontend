@@ -103,7 +103,7 @@ const EditAdClient = ({ ad }: Props) => {
         })
 
         const title = data.title
-        const price = data.price.includes("$") ? data.price.split("$")[1].replace(".", "") : data.price.replace(".", "")
+        const price = data.price.includes("$") ? data.price.split("$")[1].replaceAll(".", "") : data.price.replaceAll(".", "")
         const description = data.description
 
         const category = categories.filter((categoryMap) => categoryMap.name === data.category)[0]

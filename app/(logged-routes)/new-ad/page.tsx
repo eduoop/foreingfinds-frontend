@@ -85,7 +85,7 @@ const page = () => {
         })
 
         const title = data.title
-        const price = data.price.split("$")[1].replace(".", "")
+        const price = data.price.split("$")[1].replaceAll(".", "")
         const description = data.description
 
         const category = categories.filter((categoryMap) => categoryMap.name === data.category)[0]

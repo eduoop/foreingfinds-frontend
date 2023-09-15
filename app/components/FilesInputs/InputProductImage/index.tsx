@@ -56,7 +56,7 @@ const InputProductImage = ({ setImages, productImages }: Props) => {
       >
         <div className="flex items-center justify-center flex-col">
           <PiCameraPlus fontSize={65} className="text-primaryOrange" />
-          <h1 className="text-primaryGraffiti font-medium text-lg">Adicionar fotos</h1>
+          <h1 className="text-primaryGraffiti font-medium text-lg text-center">Adicionar fotos</h1>
         </div>
       </div>
     </label>

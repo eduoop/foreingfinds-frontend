@@ -9,6 +9,7 @@ import 'react-multi-carousel/lib/styles.css';
 import { StyledCarousel } from './styles';
 import FilterIntegerValueToReal from '@/utils/FilterIntegerValueToReal';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type Props = {
   ad: Ad
@@ -59,7 +60,9 @@ const AdSquare = ({ ad }: Props) => {
                 <div
                   className='w-full h-full bg-[#e5e5e5]'>
                 </div>
-                <img
+                <Image
+                  width={100}
+                  height={100}
                   draggable={false}
                   className='w-full h-full object-contain absolute translate-y-[50%] translate-x-[50%] bottom-[50%] right-[50%] z-10'
                   style={{ pointerEvents: "none" }}

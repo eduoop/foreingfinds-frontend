@@ -45,7 +45,7 @@ const login = () => {
 
     if (logged) {
       setLoading(false)
-      router.push("/")
+      router.replace("/")
     } else {
       setLoading(false)
       toast.error("Conta não encontrada")

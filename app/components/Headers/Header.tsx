@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container } from '../Container'
 import Logo from '@/assets/logo.png'
 import Image from 'next/image'
@@ -9,11 +9,14 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import { useGlobalUserContext } from '@/app/contexts/User/UserContext'
 import { RiLoginCircleLine } from "react-icons/ri"
+import { User } from '@/models/user'
 
 const Header = () => {
 
   const hiddenIn = ['login', 'forgot-password', 'register', 'complete-register']
   const currentPage = usePathname();
+
+  const [localUser, setLocalUser] = useState<User | null>()
 
   const currentPageWithoutBar = currentPage.replace("/", "")
 
@@ -28,6 +31,10 @@ const Header = () => {
   }
   const { user } = useGlobalUserContext()
 
+  useEffect(() => {
+    setLocalUser(user)
+  }, [user])
+
   return (
     <>
       {render() &&
@@ -41,7 +48,7 @@ const Header = () => {
                 <Search />
               </div>
               <div className='h-full flex items-center gap-2'>
-                {user === null ?
+                {localUser === null ?
                   <Link href="/login" className='flex tablet:hidden h-[50px] w-[50px] items-center justify-center rounded-full text-white bg-primaryOrange text-3xl'>
                     <RiLoginCircleLine />
                   </Link>

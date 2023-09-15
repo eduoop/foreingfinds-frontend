@@ -272,7 +272,7 @@ const EditAdClient = ({ ad }: Props) => {
                             name='description'
                         />
 
-                        <div className='grid gap-5 grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-5 desktop:grid-cols-7 mt-2'>
+                        <div className='grid gap-5 grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-5 desktop:grid-cols-7 mt-2 grid-rows-1'>
                             {productImages && productImages.map((image: any) => (
                                 <div className='h-[150px] rounded-2xl relative group'>
                                     <img className='h-full object-cover w-full rounded-2xl shadow-lg' src={transformObjectUrl(image)} />

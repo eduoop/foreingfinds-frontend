@@ -15,6 +15,7 @@ import Link from 'next/link';
 import { MdEmail } from 'react-icons/md';
 import GetYearFromDate from '@/utils/GetYearFromDate';
 import RelatedAds from '../RelatedAds/RelatedAds';
+import SellerAds from '../SellerAds/SellerAds';
 
 const siteUrl = process.env.SITE_URL
 
@@ -76,6 +77,7 @@ const ShowAdClient = ({ ad }: Props) => {
             <div className='w-full h-[1px] rounded-full bg-slate-400/60 my-5' />
 
             <RelatedAds adId={ad.id} categoryId={ad.product_category_id} price={ad.price} subcategoryId={ad.subcategory_id} />
+            <SellerAds adId={ad.id} sellerId={ad.user_id} />
           </div>
 
           <div className='w-full tablet:w-[40%] h-full flex flex-col gap-2 mb-10'>

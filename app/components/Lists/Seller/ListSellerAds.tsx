@@ -62,7 +62,7 @@ export default async function ListSellerAds({ id }: Props) {
 
     return (
         <div className='w-full mb-16'>
-            <div className='w-full h-[200px] p-6 rounded-md mb-4 border border-gray-400/30'>
+            <div className='w-full min-h-[200px] p-6 rounded-md mb-4 border border-gray-400/30'>
                 <div className='flex gap-3'>
                     <div className='min-w-[120px] w-[120px] min-h-[120px] h-[120px] rounded-full'>
                         <img src={user && user.avatar ? user.avatar.file_url : PersonIcon} alt="seller image" className='w-full h-full rounded-full object-cover' />

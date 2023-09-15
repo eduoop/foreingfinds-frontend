@@ -14,13 +14,6 @@ type Props = {
   ad: Ad
 }
 
-interface CustomLeftArrowProps extends ArrowProps {
-  myOwnStuff: string
-}
-interface CustomRightArrowProps extends ArrowProps {
-  myOwnStuff: string
-}
-
 const AdSquare = ({ ad }: Props) => {
 
   const responsive = {
@@ -44,25 +37,29 @@ const AdSquare = ({ ad }: Props) => {
 
   return (
     <div className='flex flex-col w-full h-full bg-white border-2 border-weakGray gap-2 shadow-lg cursor-pointer rounded-md'>
-      <div className='w-auto tablet:w-[100%] h-[100%] tablet:h-[200px] group'>
+      <div className='w-[100%] h-[200px] group'>
         <StyledCarousel
           responsive={responsive}
           infinite={true}
-          className='h-full rounded-t-md'
+          className='h-full rounded-t-md w-auto tablet:w-[100%]'
           customLeftArrow={<SlArrowLeft className="absolute h-full text-xl top-0 left-4 cursor-pointer text-white hidden group-hover:block" />}
           customRightArrow={<SlArrowRight className="absolute h-full text-xl top-0 right-4 cursor-pointer text-white hidden group-hover:block" />}
           renderArrowsWhenDisabled
         >
-          {ad.files.map((adImage) => (
-            <Link href={`/ad/${ad.id}`} className='flex flex-col w-full h-full bg-white border-2 border-weakGray gap-2 shadow-lg cursor-pointer rounded-md'>
-              <img
-                draggable={false}
-                className='object-cover w-full h-full select-none rounded-t-md'
-                style={{ pointerEvents: "none" }}
-                src={adImage.file_url}
-                alt="ad image"
-              />
-            </Link>
+          {ad.files.map((adImage, index) => (
+              <Link href={`/ad/${ad.id}`} key={adImage.id + index} className='h-[280px] tablet:h-[402px] relative'>
+                <div
+                  style={{ backgroundImage: `url(${adImage.file_url})`, filter: "blur(8px)" }}
+                  className='w-full h-full bg-gray-200 bg-cover bg-center'>
+                </div>
+                <img
+                  draggable={false}
+                  className='w-full object-contain max-h-[402px] absolute translate-x-[50%] translate-y-[-50%] top-[50%] right-[50%] z-10'
+                  style={{ pointerEvents: "none" }}
+                  src={adImage.file_url}
+                  alt="ad image"
+                />
+              </Link>
           ))}
         </StyledCarousel>
       </div>

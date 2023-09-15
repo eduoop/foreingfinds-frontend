@@ -11,7 +11,7 @@ const SellerSkeleton = () => {
                         <Skeleton count={1} height="100%" width="100%" circle />
                     </div>
                     <div className='flex flex-col h-full gap-3'>
-                        <div className='flex items-center gap-3'>
+                        <div className='flex-col tablet:flex-row flex tablet:items-center gap-3'>
                             <Skeleton count={1} height="30px" width="150px" />
                             <Skeleton count={1} height="15px" width="150px" />
                         </div>

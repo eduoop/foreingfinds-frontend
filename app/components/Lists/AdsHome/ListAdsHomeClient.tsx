@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import InfiniteScroll from "react-infinite-scroll-component";
 import AdSquare from '../../Cards/AdSquare';
 
-
 type Props = {
     ads: Ad[];
     getAds: (page: number) => Promise<void>;

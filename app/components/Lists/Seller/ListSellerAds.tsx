@@ -64,12 +64,12 @@ export default async function ListSellerAds({ id }: Props) {
         <div className='w-full mb-16'>
             <div className='w-full h-[200px] p-6 rounded-md mb-4 border border-gray-400/30'>
                 <div className='flex gap-3'>
-                    <div className='w-[120px] min-h-[120px] h-[120px] rounded-full'>
+                    <div className='min-w-[120px] w-[120px] min-h-[120px] h-[120px] rounded-full'>
                         <img src={user && user.avatar ? user.avatar.file_url : PersonIcon} alt="seller image" className='w-full h-full rounded-full object-cover' />
                     </div>
                     <div className='flex flex-col h-full gap-3'>
-                        <div className='flex items-center gap-3'>
-                            <h1 className='text-2xl font-medium text-primaryGraffiti'>
+                        <div className='flex-col tablet:flex-row flex tablet:items-center gap-3'>
+                            <h1 className='text-xl tablet:text-2xl font-medium text-primaryGraffiti'>
                                 {user && user.name}
                             </h1>
                             <small className='text-md font-medium text-primaryGraffiti'>{user && user.surname}</small>

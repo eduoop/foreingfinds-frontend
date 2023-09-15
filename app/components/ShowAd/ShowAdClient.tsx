@@ -62,7 +62,7 @@ const ShowAdClient = ({ ad }: Props) => {
 
             <div>
               <h1 className='text-[20px] font-medium text-neutralBlack w-full'>Detalhes</h1>
-              <div className='flex gap-10 mt-5'>
+              <div className='flex gap-5 tablet:gap-10 mt-5'>
                 <div className='flex flex-col'>
                   <small>Categoria</small>
                   <Link href="/" className='text-primaryOrange'>{ad.productCategory.name}</Link>

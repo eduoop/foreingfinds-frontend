@@ -7,7 +7,7 @@ const SellerSkeleton = () => {
         <div className='w-full mb-16'>
             <div className='w-full h-[200px] p-6 rounded-md mb-4 border border-gray-400/30'>
                 <div className='flex gap-3'>
-                    <div className='w-[120px] h-[120px] rounded-full'>
+                    <div className='min-w-[90px] w-[90px] min-h-[90px] h-[90px] tablet:min-w-[120px] tablet:w-[120px] tablet:min-h-[120px] tablet:h-[120px] rounded-full'>
                         <Skeleton count={1} height="100%" width="100%" circle />
                     </div>
                     <div className='flex flex-col h-full gap-3'>

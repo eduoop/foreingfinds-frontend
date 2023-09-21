@@ -6,6 +6,7 @@ import { Container } from '../components/Container'
 import AdSquareSkeleton from '../components/Cards/AdSquareSkeleton'
 import ListAdsHome from '../components/Lists/AdsHome/ListAdsHome'
 import ListAdsHomeSearch from '../components/Lists/AdsSearch/ListAdsHomeSearch'
+import { Banners } from '../components/Banners/Banners'
 
 const baseUrl = process.env.BASE_URL
 

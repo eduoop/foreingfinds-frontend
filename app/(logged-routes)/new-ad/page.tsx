@@ -105,7 +105,7 @@ const page = () => {
             body: formData
         })
 
-        if (res.ok) {
+        if (res.status === 200) {
             toast.success("Anúncio criado com sucesso!")
             router.replace("/")
         }

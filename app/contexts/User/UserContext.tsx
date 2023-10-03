@@ -53,7 +53,7 @@ export const UserContextProvider = ({ children }: { children: any }) => {
 
         const res = await data.json()
 
-        if (data.ok === true) {
+        if (data.status === 200) {
             // setUser(res.user)
 
             const loggedUser = res.user
@@ -84,6 +84,7 @@ export const UserContextProvider = ({ children }: { children: any }) => {
             localStorage.removeItem("user");
             setToken("");
             setUser(null);
+            setLogged(false)
             return true
         }).catch(() => {
             return false

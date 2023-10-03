@@ -14,7 +14,6 @@ const config: Config = {
         primaryGray: '#D2D2D2',
         primaryGraffiti: '#4a4a4a',
         neutralBlack: '#1a1d23',
-
       },
       fontFamily: {
         'roboto': ['Roboto',],

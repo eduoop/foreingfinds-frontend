@@ -1,5 +1,7 @@
 {
-    "cSpell.words": [
-        "Datetime"
-    ]
+  "cSpell.words": [
+    "Datetime"
+  ],
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

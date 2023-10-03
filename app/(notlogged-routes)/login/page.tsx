@@ -41,15 +41,16 @@ const login = () => {
     const email = data.email
     const password = data.password
 
-    const logged = await signin(email, password)
-
-    if (logged) {
-      setLoading(false)
-      router.replace("/")
-    } else {
-      setLoading(false)
-      toast.error("Conta não encontrada")
-    }
+    await signin(email, password)
+      .then((res: boolean) => {
+        if (res) {
+          setLoading(false)
+          // router.push("/")
+        } else {
+          setLoading(false)
+          toast.error("Conta não encontrada")
+        }
+      })
   }
 
   return (

@@ -131,7 +131,7 @@ const ShowAdClient = ({ ad }: Props) => {
                   <FaRegClock className="text-neutralBlack" fontSize={20} />
 
                   <div>
-                    <h3 className='leading-[14px] text-[14px] text-neutralBlack'>Na FF desde</h3>
+                    <h3 className='leading-[14px] text-[14px] text-neutralBlack'>Registrou-se em</h3>
                     <small>{GetYearFromDate(ad.created_at)}</small>
                   </div>
                 </div>
